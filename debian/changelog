@@ -1,0 +1,10 @@
+regolith-st (0.8.2-1ubuntu1) bionic; urgency=medium
+
+  * Initial release
+  * ST from tarball 0.8.2
+  * Patches applied: 
+  * st-no_bold_colors-20170623-b331da5.diff
+  * st-scrollback-20190122-3be4cf1.diff 
+  * st-solarized-both-20190128-3be4cf1.diff
+
+ -- Ken Gilmer <kgilmer@gmail.com>  Fri, 15 Mar 2019 22:27:59 -0700
