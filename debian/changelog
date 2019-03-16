@@ -1,3 +1,15 @@
+regolith-st (0.8.2-1ubuntu10) bionic; urgency=medium
+
+  * Disable man page and terminfo stuff in Makefile. 
+
+ -- Ken Gilmer <kgilmer@gmail.com>  Sat, 16 Mar 2019 08:45:23 -0700
+
+regolith-st (0.8.2-1ubuntu5) bionic; urgency=medium
+
+  * Add x11 dependency for build failure. 
+
+ -- Ken Gilmer <kgilmer@gmail.com>  Fri, 15 Mar 2019 22:49:38 -0700
+
 regolith-st (0.8.2-1ubuntu1) bionic; urgency=medium
 
   * Initial release

@@ -2,12 +2,12 @@ Source: regolith-st
 Section: x11
 Priority: optional
 Maintainer: Ken Gilmer <kgilmer@gmail.com>
-Build-Depends: debhelper (>= 10)
+Build-Depends: debhelper (>= 10),pkg-config,libfreetype6-dev,libfontconfig1-dev,libx11-dev,libxft-dev,ncurses-bin (>=6.0)
 Standards-Version: 4.1.2
 Homepage: https://github.com/regolith-linux
 Vcs-Browser: https://github.com/regolith-linux/regolith-st
 
 Package: regolith-st
 Architecture: all
-Depends: ${misc:Depends}, libfreetype6-dev, fontconfig, fonts-source-code-pro-ttf
+Depends: ${misc:Depends}, fontconfig, fonts-source-code-pro-ttf
 Description: suckless terminal with Solarized theme and other stock patches
