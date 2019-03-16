@@ -1,7 +1,23 @@
 #!/usr/bin/make -f
 
-override_dh_usrlocal:
+# Needed for the st.1 VERSION fixup in override_dh_installman.
+# include /usr/share/dpkg/pkg-info.mk
+
+export DEB_BUILD_MAINT_OPTIONS = hardening=+all
+export DEB_LDFLAGS_MAINT_APPEND = -Wl,--as-needed
 
 %:
 	dh $@
 
+override_dh_auto_build:
+	# The Makefile supports CFLAGS, but not CPPFLAGS, let's append them.
+	CFLAGS="$$CFLAGS $$CPPFLAGS" dh_auto_build
+
+override_dh_auto_install:
+	# The upstream install target runs tic(1), and we don't want to. We could patch
+	# the command away, but it is simpler to install the couple of files we actually
+	# want using debhelper. Let's disable dh_auto_install.
+
+override_dh_installman:
+	# dh_installman
+	# sed -i "s/VERSION/$(DEB_VERSION_UPSTREAM)/g" $(CURDIR)/debian/stterm/usr/share/man/man1/st.1

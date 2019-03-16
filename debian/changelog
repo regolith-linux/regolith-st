@@ -1,3 +1,9 @@
+regolith-st (0.8.2-1ubuntu12) bionic; urgency=medium
+
+  * Try using Debian's meta package files to fix build issues. 
+
+ -- Ken Gilmer <kgilmer@gmail.com>  Sat, 16 Mar 2019 10:19:10 -0700
+
 regolith-st (0.8.2-1ubuntu10) bionic; urgency=medium
 
   * Disable man page and terminfo stuff in Makefile. 

@@ -1,13 +1,34 @@
 Source: regolith-st
 Section: x11
 Priority: optional
-Maintainer: Ken Gilmer <kgilmer@gmail.com>
-Build-Depends: debhelper (>= 10),pkg-config,libfreetype6-dev,libfontconfig1-dev,libx11-dev,libxft-dev,ncurses-bin (>=6.0)
-Standards-Version: 4.1.2
-Homepage: https://github.com/regolith-linux
-Vcs-Browser: https://github.com/regolith-linux/regolith-st
+Maintainer: Paride Legovini <pl@ninthfloor.org>
+Build-Depends: debhelper (>= 10),
+               libx11-dev,
+               libxft-dev,
+               pkg-config
+Standards-Version: 4.3.0
+Vcs-Browser: https://salsa.debian.org/debian/st
+Vcs-Git: https://salsa.debian.org/debian/st.git
+Homepage: https://st.suckless.org
 
 Package: regolith-st
-Architecture: all
-Depends: ${misc:Depends}, fontconfig, fonts-source-code-pro-ttf
-Description: suckless terminal with Solarized theme and other stock patches
+Architecture: any
+Depends: ${shlibs:Depends}, ${misc:Depends}, ncurses-term (>= 6.1+20180714-1), fonts-source-code-pro-ttf
+Provides: x-terminal-emulator
+Multi-Arch: foreign
+X-Comment:
+ The versioned dependency for ncurses-term is on the first update after the
+ terminfo entry for st has been last updated in the terminfo database. This
+ can be checked in <https://invisible-island.net/ncurses/NEWS.html>.
+Description: simple terminal emulator for X
+ st is a terminal emulator from the suckless project with a focus on
+ simplicity, clarity and frugality. The project's philosophy is about
+ keeping things simple, minimal and usable.
+ .
+ st supports most VT10X escape sequences, serial lines, XIM, utmp via
+ utmp(1), clipboard handling, mouse and keyboard shortcuts, UTF-8, wide
+ characters, resize, 256 colors, true colors, antialiased fonts (using
+ fontconfig), fallback fonts, and line drawing. It does *not* provide
+ a scrollback buffer: users are encouraged to use a terminal multiplexter.
+ .
+ This Debian package is called 'stterm' for historical reasons.
