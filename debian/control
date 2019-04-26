@@ -13,7 +13,7 @@ Homepage: https://st.suckless.org
 
 Package: regolith-st
 Architecture: any
-Depends: ${shlibs:Depends}, ${misc:Depends}, ncurses-term (>= 6.1+20180714-1), fonts-source-code-pro-ttf
+Depends: ${shlibs:Depends}, ${misc:Depends}, ncurses-term, fonts-source-code-pro-ttf
 Provides: x-terminal-emulator
 Multi-Arch: foreign
 X-Comment:

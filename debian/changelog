@@ -1,3 +1,11 @@
+regolith-st (0.8.2-1ubuntu18) bionic; urgency=medium
+
+  * Fix pre/postinst scripts, set perms
+  * Ship desktop file to launch terminal
+  * Set st as default terminal 
+
+ -- Ken Gilmer <kgilmer@gmail.com>  Wed, 24 Apr 2019 20:57:40 -0700
+
 regolith-st (0.8.2-1ubuntu12) bionic; urgency=medium
 
   * Try using Debian's meta package files to fix build issues. 
