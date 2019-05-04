@@ -14,7 +14,7 @@ This guide assumes you wish to make changes to a Regolith package and host those
 
 ## Check out the package
 
-This step will pull the Regolith package metadata down from GitHub:
+This step will pull the Regolith package metadata down from GitHub.  The debian metadata is on a branch called `debian`, due to conflicts that this README presents to the build tool.
 
 ```
 mkdir workspace
@@ -44,6 +44,10 @@ debuild -S -sa
 ```
 
 There should now be a number of files generated in the parent directory, such as `regolith-st_0.8.2-1ubuntu18_source.changes`.
+
+## Bump the package version
+
+It's necessary to update the version of the package so that the local package manager will be able to determine that an update is available.  The Debian packaging tools provide the program `dch` for this task.  `dch` modifies the `debian/changelog` file.  This file contains the package versioning metadata and is organized by stanzas of three elements: version, change info, and author of change.  It's similiar in a way to a git commit log + release tags, but managed in a file rather than the git index.  Run `dch` and update the version string, change UNRELEASED to your intended Ubuntu version target (probably `bionic`) and then below add a description of your change.  The rest should be done automatically by the `dch` program.  Verify that your change follows the pattern of entries below it.
 
 ## Upload the package to your PPA
 
