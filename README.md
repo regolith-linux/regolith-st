@@ -33,6 +33,36 @@ wget https://dl.suckless.org/st/st-0.8.2.tar.gz
 mv st-0.8.2.tar.gz regolith-st_0.8.2.orig.tar.gz
 ```
 
+## Extract source and apply patches
+
+This is an optional step if you want to have a look at the actual files that are being built into the package.  If you just want to build, you can proceed to the next step.
+
+First we need to extract the upstream source into the root of the package:
+
+```
+$ tar xfzv ../regolith-st_0.8.2.orig.tar.gz
+$ mv st-0.8.2/* .
+$ rmdir st-0.8.2/ 
+```
+
+Next we apply patches to the source we extracted using the `quilt` tool:
+```
+$ quilt push -a
+```
+
+At this point the files you see in the package directory are what gets built into the binary pacage.  If you'd like to make changes and have them be added as new patches, use quilt:
+
+```
+$ quilt new my-change.patch  # create a new empty patch
+$ quilt add config.def.h     # tell quilt that config.def.h is part of your new patch
+$ vim config.def.h           # Make whatever changes you like
+$ quilt refresh	             # tell quilt to refresh the patch based on your file changes
+$ quilt pop -a               # roll all the changes back to the original source
+```
+
+At this point the source in the package should be just as the upstream tarball we downloaded and extracted.  The only difference is that we have new patch data in debian/patches.  The package build tools know to apply these before building.
+
+
 ## Build the package
 
 Now we will build the package locally and generate the Debian package metadata required for hosting in a Private Package Archive (PPA).
