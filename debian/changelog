@@ -1,3 +1,9 @@
+regolith-st (0.8.2-1ubuntu20ppa1) bionic; urgency=medium
+
+  * Remove Regolith styling. Moving to Xresources. 
+
+ -- Ken Gilmer <kgilmer@gmail.com>  Sun, 23 Jun 2019 20:58:28 -0700
+
 regolith-st (0.8.2-1ubuntu19) bionic; urgency=medium
 
   * Apply Xresources patch from https://st.suckless.org/patches/xresources/
