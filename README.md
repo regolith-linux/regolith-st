@@ -16,21 +16,18 @@ This guide assumes you wish to make changes to a Regolith package and host those
 
 This step will pull the Regolith package metadata down from GitHub.  The debian metadata is on a branch called `debian`, due to conflicts that this README presents to the build tool.
 
-```
-mkdir workspace
+```bash
+$ mkdir workspace
 
-git clone -b debian https://github.com/regolith-linux/regolith-st
-
+$ git clone -b debian https://github.com/regolith-linux/regolith-st
 ```
 
 ## Download and prepare the upstream source
 
-This step will download the original package source code and change the name of the tarball to make Debian's build scripts happy.
+This step will download the original package source code. We alter the name of the tarball to make Debian's build scripts happy.
 
-```
-wget https://dl.suckless.org/st/st-0.8.2.tar.gz
-
-mv st-0.8.2.tar.gz regolith-st_0.8.2.orig.tar.gz
+```bash
+$ wget -O regolith-st_0.8.2.orig.tar.gz https://dl.suckless.org/st/st-0.8.2.tar.gz
 ```
 
 ## Extract source and apply patches
@@ -39,20 +36,20 @@ This is an optional step if you want to have a look at the actual files that are
 
 First we need to extract the upstream source into the root of the package:
 
-```
+```bash
 $ tar xfzv ../regolith-st_0.8.2.orig.tar.gz
 $ mv st-0.8.2/* .
 $ rmdir st-0.8.2/ 
 ```
 
 Next we apply patches to the source we extracted using the `quilt` tool:
-```
+```bash
 $ quilt push -a
 ```
 
 At this point the files you see in the package directory are what gets built into the binary pacage.  If you'd like to make changes and have them be added as new patches, use quilt:
 
-```
+```bash
 $ quilt new my-change.patch  # create a new empty patch
 $ quilt add config.def.h     # tell quilt that config.def.h is part of your new patch
 $ vim config.def.h           # Make whatever changes you like
@@ -67,10 +64,10 @@ At this point the source in the package should be just as the upstream tarball w
 
 Now we will build the package locally and generate the Debian package metadata required for hosting in a Private Package Archive (PPA).
 
-```
-cd regolith-st
+```bash
+$ cd regolith-st
 
-debuild -S -sa
+$ debuild -S -sa
 ```
 
 There should now be a number of files generated in the parent directory, such as `regolith-st_0.8.2-1ubuntu18_source.changes`.
@@ -83,8 +80,8 @@ It's necessary to update the version of the package so that the local package ma
 
 <sub>You may wish to change the package version in the `debian\changelog` file to avoid conflicts, but that is optional and up to you.</sub>
 
-```
-dput ppa://<username>/<ppa name> ../regolith-st_0.8.2-1ubuntu18_source.changes
+```bash
+$ dput ppa://<username>/<ppa name> ../regolith-st_0.8.2-1ubuntu18_source.changes
 ```
 
 ## Verification
