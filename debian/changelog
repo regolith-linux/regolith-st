@@ -1,9 +1,15 @@
+regolith-st (0.8.2-1ubuntu20ppa4) disco; urgency=medium
+
+  * Increase scrollback buffer from 2K lines to 5K.  
+
+ -- Ken Gilmer <kgilmer@gmail.com>  Tue, 01 Oct 2019 21:08:33 -0700
+
 regolith-st (0.8.2-1ubuntu20ppa3) disco; urgency=medium
 
   * Depend on emoji font to prevent terminal from crashing when 
     rendering emojis. 
 
- -- Ken Gilmer <kgilmer@gmail.com>  Tue, 17 Sep 2019 20:18:23 -0700
+ -- Ken Gilmer <kgilmer@gmail.com>  Tue, 01 Oct 2019 21:04:23 -0700
 
 regolith-st (0.8.2-1ubuntu20ppa2) disco; urgency=medium
 
