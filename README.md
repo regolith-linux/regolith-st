@@ -20,6 +20,7 @@ This step will pull the Regolith package metadata down from GitHub.  The debian 
 $ mkdir workspace
 
 $ git clone -b debian https://github.com/regolith-linux/regolith-st
+$ cd regolith-st/debian/
 ```
 
 ## Download and prepare the upstream source
